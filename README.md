@@ -1,6 +1,17 @@
-# v1_alerto
+# Alerto v1.0.0
 
-Alerto first build // 02-03-2024
+APK developed 02-03-2024
+
+<i> Ceanne Kolinne Arenas </i>
+
+## Features
+Google Maps API
+
+Geolocation (Flutter package)
+
+Navigation 
+
+<b> For project purposes only </b>
 
 ## Getting Started
 
