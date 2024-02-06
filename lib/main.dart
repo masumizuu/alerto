@@ -242,8 +242,8 @@ class _MyAppState extends State<MyApp> {
           polylines: Set<Polyline>.of(polylines.values),
           markers: { Marker(
             consumeTapEvents: true,
-            markerId: const MarkerId('Tenement Elementary School'),
-            position: const LatLng(14.509220772670641, 121.03809182359619),
+            markerId: const MarkerId('MAKATI SAMPLE'),
+            position: const LatLng(14.562362946132959, 121.0293603839722),
             infoWindow: const InfoWindow(
               title: "Tenement Elementary School",
               snippet: "Evacuation center for Brgy. Western Bicutan, Taguig City",
@@ -326,11 +326,11 @@ class _MyAppState extends State<MyApp> {
                       break;
                     case 1:
                       Navigator.push(context, MaterialPageRoute(builder:
-                          (context) => const MyApp()),);
+                          (context) => const EQ()),);
                       break;
                     case 2:
                       Navigator.push(context, MaterialPageRoute(builder:
-                          (context) => const MyApp()),);
+                          (context) => const EN()),);
                       break;
                     case 3:
                       Navigator.push(context, MaterialPageRoute(builder:
@@ -440,7 +440,7 @@ class _TeneState extends State<Tene> {
   //variable declarations
   int selectedIndex = 0;
   late GoogleMapController mapController;
-  LatLng teneLoc = const LatLng(14.509137679337712, 121.03814546777816);
+  LatLng teneLoc = const LatLng(14.562362946132959, 121.0293603839722);
 
   LatLng? _currentPosition;
   bool _isLoading = true;
@@ -524,8 +524,8 @@ class _TeneState extends State<Tene> {
           ? _currentPosition!.longitude
           : startPlacemark[0].longitude;
 
-      double destinationLatitude = 14.509137679337712;
-      double destinationLongitude =  121.03814546777816;
+      double destinationLatitude = 14.562362946132959;
+      double destinationLongitude =  121.0293603839722;
 
       // Calculating to check that the position relative
       // to the frame, and pan & zoom the camera accordingly.
@@ -665,8 +665,8 @@ class _TeneState extends State<Tene> {
               target: teneLoc,
               zoom: 20.0),
           markers: { const Marker(
-            markerId:  MarkerId('Tenement Elementary School'),
-            position:  LatLng(14.509220772670641, 121.03809182359619),
+            markerId:  MarkerId('MAKATI SAMPLE'),
+            position:  LatLng(14.562362946132959, 121.0293603839722),
             infoWindow:  InfoWindow(
               title: "Tenement Elementary School",
               snippet: "Evacuation center for Brgy. Western Bicutan, Taguig City",
@@ -745,6 +745,21 @@ class OT extends StatelessWidget {
   }
 } //OTP
 
+class EQ extends StatelessWidget {
+  const EQ({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      title: 'Earthquakes',
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        body: Equake(),
+      ),
+    );
+  }
+} //eq
+
 class EC extends StatelessWidget {
   const EC({super.key});
 
@@ -789,6 +804,21 @@ class TS extends StatelessWidget {
     );
   }
 } //tsunami
+
+class EN extends StatelessWidget {
+  const EN({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      title: 'Emergency Numbers',
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        body: Enum(),
+      ),
+    );
+  }
+} //emergency numbers
 
 //ROUTE CODES
 
@@ -1128,6 +1158,51 @@ class Otp extends StatelessWidget {
   }
 }
 
+class Equake extends StatelessWidget {
+  const Equake({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+
+    //responsive
+    MediaQueryData mediaQueryData = MediaQuery.of(context);
+    double screenWidth = mediaQueryData.size.width;
+    double screenHeight = mediaQueryData.size.height;
+
+    return Container(
+      width: screenWidth,
+      height: screenHeight,
+      clipBehavior: Clip.hardEdge,
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+          colors: [Color(0xB202045E), Color(0xB21DAEEF), Color(0xB20077B6)],
+          stops: [0, 1, 1],
+        ),
+      ),
+      child: SizedBox(
+        width: double.infinity,
+        child: Stack(
+          clipBehavior: Clip.none,
+          children: [
+            Align(
+              alignment: const Alignment(0.0, -0.15),
+              child: Text(
+                'Soon...',
+                style: GoogleFonts.getFont(
+                  'Inter',
+                  color: Colors.white,
+                  fontSize: 32,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 class EvacCenter extends StatefulWidget {
   const EvacCenter({Key? key}) : super(key: key);
 
@@ -1266,7 +1341,7 @@ class Eprod extends StatelessWidget {
                     ),
                   ),
                 ),
-                //appbar
+       //appbar
                 GestureDetector(
                   onTap: () {
                     //add to do code here
@@ -1480,6 +1555,410 @@ class Tsunami extends StatelessWidget {
                 //p3
               ] // end of widgets
           ) // columns
+      ),
+    );
+  }
+}
+
+class Enum extends StatelessWidget {
+  const Enum({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    //responsive
+    MediaQueryData mediaQueryData = MediaQuery.of(context);
+    double screenWidth = mediaQueryData.size.width;
+    double screenHeight = mediaQueryData.size.height;
+
+    return Container(
+      width: screenWidth,
+      height: screenHeight,
+      clipBehavior: Clip.hardEdge,
+      decoration: const BoxDecoration(
+        color: Colors.white,
+      ),
+      child: SizedBox(
+        width: double.infinity,
+        child: Stack(
+          clipBehavior: Clip.none,
+          children: [
+            SizedBox(
+                width: screenWidth,
+                child: AppBar(
+                  leading: IconButton(
+                    iconSize: 24,
+                    onPressed: () {
+                      // add to do code here
+                      Navigator.push(context, MaterialPageRoute(builder:
+                          (context) => const MyApp()),);
+                    },
+                    icon: const Icon(Icons.arrow_back),
+                  ),
+                  automaticallyImplyLeading: false,
+                  title: const Text('Emergency Numbers'),
+                  elevation: 0,
+                  shadowColor: Colors.black,
+                  backgroundColor: Colors.white,
+                  foregroundColor: Colors.black,
+                  centerTitle: true,
+                  titleTextStyle: GoogleFonts.getFont(
+                    'Inter',
+                    color: Colors.black,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+
+            Positioned(
+              left: 40,
+              top: 121,
+              child: Container(
+                width: 354,
+                height: 615,
+                clipBehavior: Clip.hardEdge,
+                decoration: const BoxDecoration(),
+                child: Stack(
+                  clipBehavior: Clip.none,
+                  children: [
+                    Positioned(
+                      left: 1,
+                      top: 2,
+                      child: Container(
+                        width: 98,
+                        height: 100,
+                        clipBehavior: Clip.hardEdge,
+                        decoration: const BoxDecoration(
+                          color: Color(0x66313639),
+                          borderRadius:
+                          BorderRadius.all(Radius.elliptical(49, 50)),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      left: 1,
+                      top: 169,
+                      child: Container(
+                        width: 98,
+                        height: 100,
+                        clipBehavior: Clip.hardEdge,
+                        decoration: const BoxDecoration(
+                          color: Color(0x66313639),
+                          borderRadius:
+                          BorderRadius.all(Radius.elliptical(49, 50)),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      left: 1,
+                      top: 336,
+                      child: Container(
+                        width: 98,
+                        height: 100,
+                        clipBehavior: Clip.hardEdge,
+                        decoration: const BoxDecoration(
+                          color: Color(0x66313639),
+                          borderRadius:
+                          BorderRadius.all(Radius.elliptical(49, 50)),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      left: 1,
+                      top: 503,
+                      child: Container(
+                        width: 98,
+                        height: 100,
+                        clipBehavior: Clip.hardEdge,
+                        decoration: const BoxDecoration(
+                          color: Color(0x66313639),
+                          borderRadius:
+                          BorderRadius.all(Radius.elliptical(49, 50)),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      left: 125,
+                      top: 31,
+                      child: SizedBox(
+                        width: 146,
+                        height: 47,
+                        child: Text(
+                          '(02) 165-7777\n(02) 789-3200',
+                          style: GoogleFonts.getFont(
+                            'Inter',
+                            color: Colors.black,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      left: 125,
+                      top: 205,
+                      child: SizedBox(
+                        width: 228,
+                        height: 30,
+                        child: Text(
+                          '+63 917 550 3727',
+                          style: GoogleFonts.getFont(
+                            'Inter',
+                            color: Colors.black,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      left: 125,
+                      top: 372,
+                      child: SizedBox(
+                        width: 228,
+                        height: 30,
+                        child: Text(
+                          '+63 917 821 0896',
+                          style: GoogleFonts.getFont(
+                            'Inter',
+                            color: Colors.black,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      left: 126,
+                      top: 539,
+                      child: SizedBox(
+                        width: 228,
+                        height: 30,
+                        child: Text(
+                          '+63 937 587 0000',
+                          style: GoogleFonts.getFont(
+                            'Inter',
+                            color: Colors.black,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      left: 125,
+                      top: 80,
+                      child: SizedBox(
+                        width: 228,
+                        height: 51,
+                        child: Text(
+                          'Waste segregation, no smoking\nviolations, and environmental \nissues',
+                          style: GoogleFonts.getFont(
+                            'Inter',
+                            color: Colors.black,
+                            fontSize: 12,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      left: 126,
+                      top: 230,
+                      child: SizedBox(
+                        width: 228,
+                        height: 51,
+                        child: Text(
+                          'Fire, floods, accidents, and \nother calamities',
+                          style: GoogleFonts.getFont(
+                            'Inter',
+                            color: Colors.black,
+                            fontSize: 12,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      left: 126,
+                      top: 400,
+                      child: SizedBox(
+                        width: 228,
+                        height: 51,
+                        child: Text(
+                          'Health emergencies',
+                          style: GoogleFonts.getFont(
+                            'Inter',
+                            color: Colors.black,
+                            fontSize: 12,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      left: 125,
+                      top: 564,
+                      child: SizedBox(
+                        width: 228,
+                        height: 51,
+                        child: Text(
+                          'Child protection',
+                          style: GoogleFonts.getFont(
+                            'Inter',
+                            color: Colors.black,
+                            fontSize: 12,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      left: 127,
+                      top: 27,
+                      child: Image.network(
+                        'https://storage.googleapis.com/codeless-dev.appspot.com/uploads%2Fimages%2F3YeyF4i1zTBffu6E65ql%2F0aaf4804a1814103021af5ec13b64a41.png',
+                        width: 135,
+                        height: 1,
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                    Positioned(
+                      left: 127,
+                      top: 199,
+                      child: Image.network(
+                        'https://storage.googleapis.com/codeless-dev.appspot.com/uploads%2Fimages%2F3YeyF4i1zTBffu6E65ql%2F0aaf4804a1814103021af5ec13b64a41.png',
+                        width: 135,
+                        height: 1,
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                    Positioned(
+                      left: 127,
+                      top: 366,
+                      child: Image.network(
+                        'https://storage.googleapis.com/codeless-dev.appspot.com/uploads%2Fimages%2F3YeyF4i1zTBffu6E65ql%2F0aaf4804a1814103021af5ec13b64a41.png',
+                        width: 135,
+                        height: 1,
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                    Positioned(
+                      left: 127,
+                      top: 533,
+                      child: Image.network(
+                        'https://storage.googleapis.com/codeless-dev.appspot.com/uploads%2Fimages%2F3YeyF4i1zTBffu6E65ql%2F0aaf4804a1814103021af5ec13b64a41.png',
+                        width: 135,
+                        height: 1,
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                    Positioned(
+                      left: 125,
+                      top: 0,
+                      child: SizedBox(
+                        width: 228,
+                        height: 29,
+                        child: Text(
+                          'Taguig City Hall',
+                          style: GoogleFonts.getFont(
+                            'Inter',
+                            color: Colors.black,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      left: 125,
+                      top: 172,
+                      child: SizedBox(
+                        width: 228,
+                        height: 29,
+                        child: Text(
+                          'Rescue Team',
+                          style: GoogleFonts.getFont(
+                            'Inter',
+                            color: Colors.black,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      left: 125,
+                      top: 339,
+                      child: SizedBox(
+                        width: 228,
+                        height: 29,
+                        child: Text(
+                          'Doctor-on-call',
+                          style: GoogleFonts.getFont(
+                            'Inter',
+                            color: Colors.black,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      left: 125,
+                      top: 495,
+                      child: SizedBox(
+                        width: 206,
+                        height: 40,
+                        child: Text(
+                          'Youth Welfare, Development, and Protection',
+                          style: GoogleFonts.getFont(
+                            'Inter',
+                            color: Colors.black,
+                            fontSize: 13,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      left: 0,
+                      top: 1,
+                      child: Image.network(
+                        'https://firebasestorage.googleapis.com/v0/b/codeless-app.appspot.com/o/projects%2F3YeyF4i1zTBffu6E65ql%2F25829f9cd44411054300011cbaa8e4ca99cae437ch%201.png?alt=media&token=d107f748-9fa6-480b-839a-d7e5ab06a677',
+                        width: 100,
+                        height: 100,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    Positioned(
+                      left: 0,
+                      top: 170,
+                      child: Image.network(
+                        'https://firebasestorage.googleapis.com/v0/b/codeless-app.appspot.com/o/projects%2F3YeyF4i1zTBffu6E65ql%2F9eed9f70ab4e08befe11076330dbacb3414a4c83rescue%201.png?alt=media&token=4bd61899-296f-4a96-b2e9-a56bb10039e3',
+                        width: 100,
+                        height: 100,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    Positioned(
+                      left: 0,
+                      top: 337,
+                      child: Image.network(
+                        'https://firebasestorage.googleapis.com/v0/b/codeless-app.appspot.com/o/projects%2F3YeyF4i1zTBffu6E65ql%2Fe5741966cfd0a73232d943fd9d3658acb848deb8doctor%201.png?alt=media&token=807c6b9b-e514-4a3f-8883-1dc2aaf9614e',
+                        width: 100,
+                        height: 100,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    Positioned(
+                      left: 0,
+                      top: 503,
+                      child: Image.network(
+                        'https://firebasestorage.googleapis.com/v0/b/codeless-app.appspot.com/o/projects%2F3YeyF4i1zTBffu6E65ql%2F1c5d449b2954cfc6892eec4ebfffa51d26d29e8eyouth%201.png?alt=media&token=2a376c48-af51-499f-8905-8243f1d64f5e',
+                        width: 100,
+                        height: 100,
+                        fit: BoxFit.cover,
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
